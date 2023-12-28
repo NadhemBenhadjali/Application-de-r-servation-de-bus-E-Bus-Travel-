@@ -165,12 +165,12 @@ void afficherReservations(int voyageurID) {
     FILE *resFile = fopen("reservations.txt", "r");
     if (resFile == NULL) {
         fprintf(stderr, "Error opening reservations file.\n");
-        return; // Quit the function or return a value to handle the error
+        return;
     }
 
     printf("Liste des réservations :\n");
     int resID, voyID;
-    char dest[50]; // Increase the size of the destination array to handle longer strings
+    char dest[50];
 
     while (fscanf(resFile, "%d %d %[^\n]", &resID, &voyID, dest) == 3) {
         printf("ID de la réservation : %d, ID du voyageur : %d, Destination : %s\n", resID, voyID, dest);
@@ -178,7 +178,6 @@ void afficherReservations(int voyageurID) {
 
     fclose(resFile);
 
-    // Allow the user to select a reservation to modify
     int selectedResID;
     printf("Entrez l'ID de la réservation à modifier : ");
     scanf("%d", &selectedResID);
@@ -186,14 +185,14 @@ void afficherReservations(int voyageurID) {
     resFile = fopen("reservations.txt", "r+");
     if (resFile == NULL) {
         fprintf(stderr, "Error opening reservations file for modification.\n");
-        return; // Quit the function or return a value to handle the error
+        return;
     }
 
     FILE *tempFile = fopen("temp_reservations.txt", "w");
     if (tempFile == NULL) {
         fprintf(stderr, "Error creating temporary file.\n");
         fclose(resFile);
-        return; // Quit the function or return a value to handle the error
+        return;
     }
 
     rewind(resFile);
@@ -201,9 +200,7 @@ void afficherReservations(int voyageurID) {
     while (fscanf(resFile, "%d %d %[^\n]", &resID, &voyID, dest) == 3) {
         if (resID == selectedResID) {
             printf("Modifiez la destination : ");
-            scanf(" %[^\n]", dest); // Correct the input format specifier to read strings
-
-            // Write the modified reservation data to the temporary file
+            scanf(" %[^\n]", dest);
             fprintf(tempFile, "%d %d %s\n", resID, voyID, dest);
         } else {
             fprintf(tempFile, "%d %d %s\n", resID, voyID, dest);
@@ -215,14 +212,15 @@ void afficherReservations(int voyageurID) {
 
     if (remove("reservations.txt") != 0) {
         fprintf(stderr, "Error removing original reservations file.\n");
-        return; // Quit the function or return a value to handle the error
+        return;
     }
 
     if (rename("temp_reservations.txt", "reservations.txt") != 0) {
         fprintf(stderr, "Error renaming temporary file.\n");
-        return; // Quit the function or return a value to handle the error
+        return;
     }
 }
+
 
 
 int main() {
