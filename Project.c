@@ -20,7 +20,7 @@ void creerCompte() {
     printf("Entrez votre nom de famille : ");
     scanf(" %[^\n]", nouveauVoyageur.nom);
 
-    printf("Entrez votre prénom : ");
+    printf("Entrez votre prÃ©nom : ");
     scanf(" %[^\n]", nouveauVoyageur.prenom);
 
     printf("Choisissez un mot de passe : ");
@@ -93,7 +93,7 @@ void Reserver_un_voyage() {
         fclose(fichierVoyageurs);
 
         if (!found) {
-            printf("ID voyageur ou mot de passe incorrect. Veuillez réessayer.\n");
+            printf("ID voyageur ou mot de passe incorrect. Veuillez rÃ©essayer.\n");
         } else {
             passwordMatches = 1;
         }
@@ -112,7 +112,7 @@ void Reserver_un_voyage() {
     FILE *filePointer = fopen("reservations.txt", "a");
 
     if (filePointer == NULL) {
-        printf("Le fichier ne peut pas être ouvert.\n");
+        printf("Le fichier ne peut pas Ãªtre ouvert.\n");
         return;
     }
 
@@ -121,7 +121,7 @@ void Reserver_un_voyage() {
     resID++;
 
     fclose(filePointer);
-    printf("Réservation pour : %s %s à la destination : %s\n", nouveauVoyageur.nom, nouveauVoyageur.prenom, destination);
+    printf("RÃ©servation pour : %s %s Ã  la destination : %s\n", nouveauVoyageur.nom, nouveauVoyageur.prenom, destination);
 }
 void detailsbus() {
     FILE *filePointer;
@@ -168,19 +168,19 @@ void afficherReservations(int voyageurID) {
         return; // Quit the function or return a value to handle the error
     }
 
-    printf("Liste des réservations :\n");
+    printf("Liste des rÃ©servations :\n");
     int resID, voyID;
     char dest[50]; // Increase the size of the destination array to handle longer strings
 
     while (fscanf(resFile, "%d %d %[^\n]", &resID, &voyID, dest) == 3) {
-        printf("ID de la réservation : %d, ID du voyageur : %d, Destination : %s\n", resID, voyID, dest);
+        printf("ID de la rÃ©servation : %d, ID du voyageur : %d, Destination : %s\n", resID, voyID, dest);
     }
 
     fclose(resFile);
 
     // Allow the user to select a reservation to modify
     int selectedResID;
-    printf("Entrez l'ID de la réservation à modifier : ");
+    printf("Entrez l'ID de la rÃ©servation Ã  modifier : ");
     scanf("%d", &selectedResID);
 
     resFile = fopen("reservations.txt", "r+");
@@ -231,11 +231,11 @@ int main() {
 
     while (choix != 6) {
         printf("\nOptions disponibles :\n");
-        printf("1. Créer un compte voyageur\n");
-        printf("2. Réserver un voyage\n");
-        printf("3. Afficher les détails des bus\n");
-        printf("4. Afficher les réservations\n");
-        printf("5. Informations sur le départ du bus\n");
+        printf("1. CrÃ©er un compte voyageur\n");
+        printf("2. RÃ©server un voyage\n");
+        printf("3. Afficher les dÃ©tails des bus\n");
+        printf("4. Afficher les rÃ©servations\n");
+        printf("5. Informations sur le dÃ©part du bus\n");
         printf("6. Quitter\n");
         printf("Veuillez choisir une option : ");
         scanf("%d", &choix);
@@ -251,7 +251,7 @@ int main() {
                 detailsbus();
                 break;
             case 4:
-                printf("Entrez l'ID du voyageur pour afficher les réservations : ");
+                printf("Entrez l'ID du voyageur pour afficher les rÃ©servations : ");
                 int a;
                 scanf("%d", &a);
                 afficherReservations(a);
@@ -263,7 +263,7 @@ int main() {
                 informationsBus(selectedBusID);
                 break;
             case 6:
-                printf("Merci d'avoir utilisé notre service de réservation de bus. Au revoir !\n");
+                printf("Merci d'avoir utilisÃ© notre service de rÃ©servation de bus. Au revoir !\n");
                 break;
             default:
                 printf("Choix non valide. Veuillez choisir une option valide.\n");
