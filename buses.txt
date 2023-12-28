@@ -1,0 +1,40 @@
+Bus 1:
+    Destination: Tunis
+    Horaires: 08:00 - 12:00
+    Nombre de sièges disponibles: 30
+    Prix du billet: 50 TND
+
+Bus 2:
+    Destination: Sousse
+    Horaires: 09:30 - 15:00
+    Nombre de sièges disponibles: 25
+    Prix du billet: 70 TND
+
+Bus 3:
+    Destination: Sfax
+    Horaires: 11:00 - 18:00
+    Nombre de sièges disponibles: 40
+    Prix du billet: 45 TND
+
+Bus 4:
+    Destination: Gabès
+    Horaires: 07:45 - 13:30
+    Nombre de sièges disponibles: 20
+    Prix du billet: 55 TND
+
+Bus 5:
+    Destination: Bizerte
+    Horaires: 10:00 - 14:30
+    Nombre de sièges disponibles: 35
+    Prix du billet: 60 TND
+
+Bus 6:
+    Destination: Kairouan
+    Horaires: 13:00 - 17:30
+    Nombre de sièges disponibles: 28
+    Prix du billet: 40 TND
+Bus 7:
+    Destination: Monastir
+    Horaires: 13:30 - 18:00
+    Nombre de sièges disponibles: 27
+    Prix du billet: 35 TND
